@@ -5,6 +5,8 @@
 #include "llvm/IR/LegacyPassManager.h"
 #include "llvm/Transforms/IPO/PassManagerBuilder.h"
 
+#include "llvm/IR/Module.h"
+
 using namespace llvm;
 
 namespace {
@@ -14,9 +16,15 @@ namespace {
 
         MyModulePass() : ModulePass(ID) {}
 
-        virtual bool runOnModule(Module &M) { 
+        bool runOnModule(Module &M) override {
             outs() << "Hello: " << "\n";
             outs() << M.getName() << "\n";
+            auto main = M.getFunction("main");
+            if (!main) {
+                return false;
+            } else {
+                outs() << "get main" << "\n";
+            }
             return false;
         }
     };
@@ -24,11 +32,12 @@ namespace {
 
 char MyModulePass::ID = 0;
 
-static RegisterPass<MyModulePass> X("myfunction", "My Function Pass");
+static RegisterPass<MyModulePass> X("mymodule", "My Module Pass");
+
 static void registerPass(const PassManagerBuilder &,
                          legacy::PassManagerBase &PM) {
-  PM.add(new MyModulePass());
+    PM.add(new MyModulePass());
 }
 
 static RegisterStandardPasses
-    RegisterTheSpindlePass(PassManagerBuilder::EP_EarlyAsPossible, registerPass);
+        RegisterTheSpindlePass(PassManagerBuilder::EP_EarlyAsPossible, registerPass);
