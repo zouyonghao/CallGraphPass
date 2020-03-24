@@ -6,4 +6,4 @@ include_directories(${LLVM_INCLUDE_DIRS})
 link_directories(${LLVM_LIBRARY_DIRS})
 set(CMAKE_CXX_STANDARD 14)
 
-add_subdirectory(MyModulePass)  # Use your pass name here.
+add_subdirectory(MyFunctionPass)  # Use your pass name here.
