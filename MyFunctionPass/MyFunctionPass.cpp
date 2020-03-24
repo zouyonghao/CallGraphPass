@@ -24,7 +24,7 @@ namespace {
 
 char MyFunctionPass::ID = 0;
 
-static RegisterPass<MyFunctionPass> X("mymodule", "My Module Pass");
+static RegisterPass<MyFunctionPass> X("myfuncpass", "My Function Pass");
 
 static void registerPass(const PassManagerBuilder &,
                          legacy::PassManagerBase &PM) {
