@@ -1,0 +1,1 @@
+clang -Xclang -load -Xclang ./cmake-build-debug/DynamicFunctionPass/libDynamicFunctionPass.so test.c -c
