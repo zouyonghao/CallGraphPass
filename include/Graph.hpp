@@ -20,7 +20,7 @@ public:
     }
 
     void print() {
-        cout << "(" << call << ") ";
+        // cout << "(" << call << ") ";
     }
 
     bool hasChild() { return child != nullptr; }
