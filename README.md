@@ -1,10 +1,11 @@
-# FunctionPass example
+# CallGraphPass
 
 ## Build
-  * ``cd mkdir build``
-  * ``export LLVM_DIR=/path/to/llvm-build/lib/cmake/llvm``
+  * ``mkdir cmake-build-debug``
+  * ``cd cmake-build-debug``
   * ``cmake ..``
   * ``make``
 
 ## Run test
-  * ``clang -Xclang -load -Xclang MyFunctionPass/libMyFunctionPass.so test.c``
+  * ``./static_test.sh``
+  * ``./dynamic_test.sh``
