@@ -8,6 +8,8 @@
 
 using namespace std;
 
+const int MAX_DEPTH = 3;
+
 class Node;
 
 class Edge {
@@ -49,6 +51,7 @@ public:
     };
 
     void print(int depth = 0) {
+        if (depth > MAX_DEPTH) { return; }
         for (int i = depth; i > 1; i--) {
             cout << " ";
         }
@@ -61,6 +64,7 @@ public:
             if (e->hasChild()) {
                 // cout << name.c_str() << " has child" << endl;
                 e->getChild()->print(depth + 1);
+
             }
         }
     }

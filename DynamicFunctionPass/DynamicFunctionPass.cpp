@@ -60,6 +60,10 @@ namespace {
                                     CreateWords(m, F.getName()),
                                     CreateWords(m, called->getName())
                             }, "", inst);
+                            if (called->getName() == "exit") {
+                                outs() << "call exit function\n";
+                                CallInst::Create(printFunction, ArrayRef<Value *>{}, "", I);
+                            }
                         }
                     }
                 }

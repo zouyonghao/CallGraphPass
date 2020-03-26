@@ -2,22 +2,21 @@
 
 void a() {}
 
-void b()
-{
-  a();
-  a();
+void b() {
+    a();
+    a();
 }
 
-void c()
-{
-  b();
-  a();
+void c() {
+    b();
+    a();
 }
 
-int main()
-{
-  a();
-  c();
-  printf("test\n");
-  return 0;
+int main() {
+    a();
+    c();
+    printf("test\n");
+    printf("test\n");
+    printf("test\n");
+    return 0;
 }

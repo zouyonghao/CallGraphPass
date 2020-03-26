@@ -69,9 +69,9 @@ void printNode(Node *node, int depth) {
 }
 
 void __record__(char *caller, char *callee) {
-    printf("__record__ called\n");
-    printf("caller is %s \n", caller);
-    printf("callee is %s \n", callee);
+    // printf("__record__ called\n");
+    // printf("caller is %s \n", caller);
+    // printf("callee is %s \n", callee);
     Node *callerNode = createOrGetNode(caller);
     addEdge(callerNode, callee);
 
@@ -81,6 +81,6 @@ void __record__(char *caller, char *callee) {
 }
 
 void __print__() {
-    printf("__print__ called\n");
+    // printf("__print__ called\n");
     printNode(mainNode, 0);
 }
